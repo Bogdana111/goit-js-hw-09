@@ -1,16 +1,12 @@
 import '../css/styles.css';
 
-let formData = {
-  email: '',
-  message: '',
-};
-
 const STORAGE_KEY = 'feedback-form-state';
 
 const form = document.querySelector('.feedback-form');
-
-populateForm();
-
+let formData = populateForm() || {
+  email: '',
+  message: '',
+};
 function saveToLocalStorage() {
   localStorage.setItem(STORAGE_KEY, JSON.stringify(formData));
 }
@@ -24,6 +20,7 @@ function populateForm() {
       form.elements[key].value = savedData[key];
     }
   }
+  return savedData;
 }
 form.addEventListener('input', event => {
   formData[event.target.name] = event.target.value.trim();
