@@ -21,6 +21,14 @@
   -webkit-text-size-adjust: 100%;
 }
 
+ul {
+  list-style: none;
+}
+a {
+  color: #242424;
+  text-decoration: none;
+  font-size: 20px;
+}
 .gallery {
   display: flex;
   flex-wrap: wrap;
